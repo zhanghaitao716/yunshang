@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../styles/commen.css"/>
+    <!--<link rel="stylesheet" href="../../styles/rytz.css"/>-->
+    <!--<link rel="stylesheet" href="../../styles/pagination.css"/>-->
+    <link rel="stylesheet" href="mjgl.css">
+    <link rel="stylesheet" href="reset.css">
+    <script type="text/javascript" src="../../javascript/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <div class="main">
+        <div class="detailNav">
+            <span class="rytzPic fl"></span><span class="navColor1 fl">当前位置</span>&nbsp;&nbsp;>&nbsp;&nbsp;<span class="navColor2">门禁管理</span>&nbsp;&nbsp;
+        </div>
+    </div>
+
+    <!--连接的硬件对象-->
+    <!--<div style="text-align: center; display:none" id="area_photo">-->
+        <!--<object classid="clsid:EBD7BA00-1025-4BC2-BDD0-85ED5794EA0E" id=LaCtrl  CODEBASE="*.cab#version=0,0,0,0" width=800-->
+                <!--height=600>-->
+            <!--<param name="wmode" value="opaque">-->
+        <!--</object>-->
+        <!--<object id="residence_permit" width="200" height="200" style="display: none;"-->
+                <!--classid="clsid:F42C4CC9-3D9C-4919-98D8-E184B7E2371A">-->
+        <!--</object>-->
+    <!--</div>-->
+
+    <!--居住证信息-->
+    <div class="content" >
+        <div class="childer">
+            <div class="child_box">
+                <div class="IDcard">
+                    <form id="sq">
+                    <ul class="ID_list">
+                            <!--<input type="hidden" id="pzbase64" name="pzbase64"/><br>-->
+                            <!--<input type="hidden" id="kpbase64" name="kpbase64"/><br>-->
+                            <!--姓名<input type="text" id="xm" name="xm"><br>-->
+                            <!--身份证<input type="text" id="sfz" name="sfz"><br>-->
+                            <!--kdf卡号<input type="hidden" id="kdf" name="kdf"><br>-->
+                            <!--证卡照片<img src="" id="zkzp" name="zkzp"><br>-->
+                            <!--高拍仪照片<img src="" id="gpyzp" name="gpyzp"><br>-->
+                            <!--照片名字<input type="text" id="zpmc" name="zpmc">-->
+                            <!--<input type="button" onclick="ksdk()" value="读卡"><br>-->
+                            <!--<input type="button" value="提交" onclick="sub()">-->
+
+                            <input type="hidden" id="pzbase64" name="pzbase64"/><br><!--照片64位-->
+                            <input type="hidden" id="kpbase64" name="kpbase64"/><br>
+                            <input type="hidden" id="zpmc" name="zpmc"><!--照片名字-->
+                            <input type="hidden" id="kdf" name="kdf"><br><!--kdf卡号-->
+                            <li>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：<input type="text" id="xm" name="xm" value="" /></li>
+                            <li>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：<input type="text" id="sex" name="sex"  value="" />民族：<input type="text" id="nation" name="nation" value="" /></li>
+                            <li>身份证号码：<input type="text" id="sfz" name="sfz" value="" /></li>
+                            <li>户籍所在地：<input type="text"  id="site" name="site"  value="" /></li>
+                            <li>现&nbsp;在&nbsp;住&nbsp;址：<input type="text" id="now_site" name="now_site" value="" /></li>
+                            <li>有&nbsp;效&nbsp;期&nbsp;限：<input type="text" id="start_time" name="start_time" value="" />至&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="end_time" name="end_time" value="" /></li>
+
+                    </ul>
+                    </form>
+                    <img class="user"  id="zkzp" name="zkzp" src="images/user.png"/>
+
+                    <!--<img src="" id="zkzp" name="zkzp">-->
+                </div>
+                <h6>说明</h6>
+                <div>
+                    <p>1、请将身份证放在读卡器的感应区上，然后单击工具栏上的<span>&nbsp;开始读取&nbsp;</span>按钮<br />
+                        2、如果无身份证，需先输入&nbsp;&nbsp;"姓名"&nbsp;和&nbsp;"身份证号码"，然后点击<span>&nbsp;查询&nbsp;</span>按钮</p>
+                    <!--<p></p>-->
+                </div>
+                <ul class="ID_btn">
+                    <li class="start" >开始读取</li>
+                    <li class="photo">现场拍照</li>
+                    <li class="sub_btn">提交</li>
+                </ul>
+
+                <!--<ul class="root_btn">-->
+                    <!--<li><button class="bind_btn">绑定/取消门禁权限</button></li>-->
+                    <!--<li><button class="renlian">人脸开门</button></li>-->
+                <!--</ul>-->
+            </div>
+        </div>
+        <img src="images/user.png" id="gpyzp" name="gpyzp">
+    </div>
+    <!--现场拍照-->
+    <div class="layer"  style="display: none">
+        <!--连接的硬件对象-->
+        <div style="text-align: center; display:block" id="area_photo">
+            <object classid="clsid:EBD7BA00-1025-4BC2-BDD0-85ED5794EA0E" id=LaCtrl  CODEBASE="*.cab#version=0,0,0,0" width=800
+                    height=600>
+                <param name="wmode" value="opaque">
+            </object>
+            <object id="residence_permit" width="200" height="200" style="display: none;"
+                    classid="clsid:F42C4CC9-3D9C-4919-98D8-E184B7E2371A">
+            </object>
+        </div>
+
+        <!--选择拍照模式-->
+        <div id="pzms" class="fpanrq">
+        <div id="pzan" style="text-align: center; ">
+        <input TYPE="button" class="pz_btn" VALUE="拍照" >
+        <input TYPE="button" VALUE="弱光" onClick="dodark()">
+        <input TYPE="button" VALUE="强光" onClick="dobright()">
+        <input TYPE="button" VALUE="自动" onClick="setauto()">
+        </div>
+        </div>
+        <!--拍照回显-->
+        <div align="center" id="area_show" style="width: 358px; height: 441px; background: none; display: none;margin: auto;">
+        <img id="img_show" alt="" src="" style="width: 358px; height: 441px;"/><br>
+        </div>
+        <!--照片确认-->
+        <div id="scCp" class="button-container" style="margin-top:10px; display: none;">
+        <input type="button"  class="cp_btn"  value="重拍">
+        <input type="button" class="qr_btn" value="确定">
+        </div>
+
+        <!--照片上传到照片服务器-->
+        <div style="display: none">
+        <form target="upload" id="form1" >
+        文件后缀：<input name="suffix" value="jpg">
+        文件信息:<input name="base64str">
+        证卡类型：<input type="hidden" name="zklx" value="1">
+        <input type="hidden" name="zplx" value="1">
+        </form>
+        <iframe id="ifr" name="upload">
+
+        </iframe>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    <!--提交到云上社区-->
+    <!--<form id="sq">-->
+        <!--<input type="hidden" id="pzbase64" name="pzbase64"/><br>-->
+        <!--<input type="hidden" id="kpbase64" name="kpbase64"/><br>-->
+        <!--姓名<input type="text" id="xm" name="xm"><br>-->
+        <!--身份证<input type="text" id="sfz" name="sfz"><br>-->
+        <!--kdf卡号<input type="text" id="kdf" name="kdf"><br>-->
+        <!--证卡照片<img src="" id="zkzp" name="zkzp"><br>-->
+        <!--高拍仪照片<img src="" id="gpyzp" name="gpyzp"><br>-->
+        <!--照片名字<input type="text" id="zpmc" name="zpmc">-->
+        <!--<input type="button" onclick="ksdk()" value="读卡"><br>-->
+        <!--<input type="button" value="提交" onclick="sub()">-->
+    <!--</form>-->
+
+    <!--<input type="button" onclick="ksdk()" value="读卡"><br>-->
+
+    <!--&lt;!&ndash;选择拍照模式&ndash;&gt;-->
+    <!--<div id="pzms" class="fpanrq">-->
+        <!--<div id="pzan" style="text-align: center; ">-->
+            <!--<input TYPE="button" VALUE="拍照" onClick="capturebase64()">-->
+            <!--<input TYPE="button" VALUE="弱光" onClick="dodark()">-->
+            <!--<input TYPE="button" VALUE="强光" onClick="dobright()">-->
+            <!--<input TYPE="button" VALUE="自动" onClick="setauto()">-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;拍照回显&ndash;&gt;-->
+    <!--<div align="center" id="area_show" style="width: 358px; height: 441px; background: none; display: none;margin: auto;">-->
+        <!--<img id="img_show" alt="" src="" style="width: 358px; height: 441px;"/><br>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;照片确认&ndash;&gt;-->
+    <!--<div id="scCp" class="button-container" style="margin-top:10px; display: none;">-->
+        <!--<input type="button" onclick=chongpai(); value="重拍">-->
+        <!--<input type="button" onclick=queren(); value="确定">-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;照片上传到照片服务器&ndash;&gt;-->
+    <!--<div style="display: none">-->
+        <!--<form target="upload" id="form1" >-->
+            <!--文件后缀：<input name="suffix" value="jpg">-->
+            <!--文件信息:<input name="base64str">-->
+            <!--证卡类型：<input type="hidden" name="zklx" value="1">-->
+            <!--<input type="hidden" name="zplx" value="1">-->
+        <!--</form>-->
+        <!--<iframe id="ifr" name="upload">-->
+
+        <!--</iframe>-->
+    <!--</div>-->
+
+</body>
+<script src="mjgl.js" type="text/javascript"></script>
+
+</html>

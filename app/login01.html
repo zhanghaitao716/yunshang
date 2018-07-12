@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通用后台系统</title>
+</head>
+<link rel="stylesheet" type="text/css" href="styles/login01.css">
+<body>
+<!-- 登录页背景 -->
+<div class="bksxfed-login-content">
+
+    <!-- 登陆面板的一半，用于定位 -->
+    <div class="bksxfed-login-main-half">
+
+        <!-- 登陆面板开始 -->
+        <div class="bksxfed-login-main">
+
+            <!-- 登陆面板的白背景 -->
+            <div class="bksxfed-login-white">
+
+                <!-- 系统名称和系统logo -->
+                <div class="bksxfed-title">通用后台系统</div>
+
+                <!-- 切换用户登录方式 -->
+                <div class="bksxfed-tab-warp">
+                    <div class="bksxfed-tab bksxfed-left bksxfed-active">用户登录</div>
+                    <div class="bksxfed-tab bksxfed-right">其他登录</div>
+                </div>
+
+                <!-- 用户登录 -->
+                <div class="bksxfed-yhdl">
+
+                    <!-- 用户名 -->
+                    <input type="text" class="bksxfed-user" value="csry" id="lg_user">
+
+                    <!-- 用户密码 -->
+                    <input type="password" class="bksxfed-password"  value="0" id="lg_password">
+
+                    <!-- 验证码 -->
+                    <div class="bksxfed-yzm">
+
+                        <!-- 验证码输入 -->
+                        <input type="text" placeholder="用户登录">
+
+                        <!-- 验证码图片 -->
+                        <img src="images/login01_yanzhengma.png">
+                    </div>
+                    <!-- 验证码结束 -->
+
+                    <!-- 记住密码 -->
+                    <div class="bksxfed-remember">
+                        <div class="bksxfed-checkbox">
+                            <input type="checkbox" value="1" class="bksxfed-login-rem-true" id="lg_rem_true" name="" />
+                            <label for="lg_rem_true"></label>
+                        </div>
+                        <a>记住密码</a>
+
+                        <!-- 点击进入找回密码页 -->
+                        <a class="bksxfed-forget-remember">忘记密码</a>
+                    </div>
+                    <!-- 记住密码结束 -->
+
+                    <!-- 登陆按钮 -->
+                    <input type="button" class="bksxfed-login-btn" id="lg_login" value="登录">
+
+                    <!-- 点击跳转注册页面 -->
+                    <a class="bksxfed-login-new">新用户注册</a>
+                </div>
+                <!-- 用户登录结束 -->
+
+                <!-- 其他登陆 -->
+                <div class="bksxfed-qtdl" style="display: none;">
+
+                    <!-- 用户名 -->
+                    <input type="text" class="bksxfed-user" id="lg_user">
+
+                    <!-- 用户密码 -->
+                    <input type="text" class="bksxfed-password" id="lg_password">
+
+                    <!-- 验证码 -->
+                    <div class="bksxfed-yzm">
+
+                        <!-- 验证码输入 -->
+                        <input type="text" placeholder="其他登录">
+
+                        <!-- 验证码图片 -->
+                        <img src="images/login01_yanzhengma.png">
+                    </div>
+                    <!-- 验证码结束 -->
+
+                    <!-- 记住密码 -->
+                    <div class="bksxfed-remember">
+                        <div class="bksxfed-checkbox">
+                            <input type="checkbox" value="1" class="bksxfed-login-rem-true" id="lg_rem_true1" name="" />
+                            <label for="lg_rem_true1"></label>
+                        </div>
+                        <a>记住密码</a>
+
+                        <!-- 点击进入找回密码页 -->
+                        <a class="bksxfed-forget-remember">忘记密码</a>
+                    </div>
+                    <!-- 记住密码结束 -->
+
+                    <!-- 登陆按钮 -->
+                    <input type="button" class="bksxfed-login-btn" id="lg_login" value="登录">
+
+                    <!-- 点击跳转注册页面 -->
+                    <a class="bksxfed-login-new">新用户注册</a>
+
+                </div>
+                <!-- 其他登陆结束 -->
+            </div>
+
+            <!-- 公司logo和公司名称 -->
+            <div class="bksxfed-logo">北控三兴信息技术有限公司  制作</div>
+        </div>
+        <!-- 登陆面板结束  -->
+
+    </div>
+
+</div>
+</body>
+<script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="javascript/login.js"></script>
+<script type="text/javascript" src="javascript/md5_32.js"></script>
+<script type="text/javascript">
+    $(function(){
+
+
+        $("#lg_login").on("click",function () {
+
+            login();
+        })
+
+        function login() {
+            var username = $("#lg_user").val()
+            var userpwd = $("#lg_password").val()
+            userpwd= calcMD5(userpwd);
+            console.log(username);
+            console.log(userpwd);
+            $.ajax({
+                url:"http://192.168.120.115:8086/yun_community/login/login",
+                type:"POST",
+                data:{
+                    username :username,
+                    userpwd : userpwd
+                },
+                success:function (data) {
+                    console.log(data);
+                    location.href="./index.html"
+                },
+                error:function (error) {
+                    console.log(error)
+                }
+
+            })
+            $.ajax({
+                url:"http://192.168.120.115:8086/yun_community/test",
+                success:function (data) {
+                    console.log(data);
+                },
+                error:function (error) {
+                    console.log(error)
+                }
+
+            })
+        }
+
+
+
+
+    });
+</script>
+</html>

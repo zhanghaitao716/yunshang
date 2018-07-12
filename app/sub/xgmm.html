@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../styles/sub.css">
+    <link rel="stylesheet" type="text/css" href="../../node_modules/fileupload-fed/dist/fileupload.css">
+</head>
+<body>
+<!-- 页面表单 -->
+<div class="bksxfed-main bksxfed-xgmm" >
+    <div class="bksxfed-title">修改密码</div>
+    <!-- 基础信息表单 -->
+    <div class="bksxfed-form-pan">
+        <!-- 一行表单 -->
+        <div class="bksxfed-form-line">
+
+            <!-- 一行表单标题 -->
+            <div class="bksxfed-form-title">当前密码： </div>
+
+            <!-- 一行表单右侧 -->
+            <div class="bksxfed-form-right">
+
+                <div class="bksxfed-form-input">
+                    <input type="text" class="bksxfed-input" required minlen="5" maxlen="8" validate="full" errorContain=".nameError1">
+                </div>
+
+                <!-- 一行表单右侧错误文字 -->
+                <div class="bksxfed-warn-warp">
+                    <div class="bksxfed-warn">
+                        <div class="bksxfed-text nameError1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 一行表单结束 -->
+        <div class="bksxfed-form-line">
+
+
+            <div class="bksxfed-form-title"><span class="bksxfed-red">*</span>新密码： </div>
+            <div class="bksxfed-form-right">
+                <div class="bksxfed-form-input">
+                    <input type="text" class="bksxfed-input" required minlen="5" maxlen="8" validate="full" errorContain=".nameError2">
+                </div>
+                <div class="bksxfed-warn-warp">
+                    <div class="bksxfed-error">
+                        <div class="bksxfed-text nameError2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bksxfed-form-line">
+            <div class="bksxfed-form-title"><span class="bksxfed-red">*</span>确认新密码： </div>
+            <div class="bksxfed-form-right">
+                <div class="bksxfed-form-input">
+                    <input type="text" class="bksxfed-input">
+                </div>
+                <div class="bksxfed-warn-warp">
+                    <div class="bksxfed-error">
+                        <div class="bksxfed-text nameError3">
+                            <span>单行文字少的单行文字少的单行文字少的单的单行文字少的</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <input type="button" class="bksxfed-btn-primary bksxfed-form-bc" id="btn_save" value="保存">
+        <input type="button" class="bksxfed-btn-default bksxfed-form-cz" id="btn_reset" value="重置">
+    </div>
+    <!-- 基础信息表单结束 -->
+</div>
+<!-- 页面表单结束 -->
+
+</body>
+<script type="text/javascript" src="../../node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../../node_modules/fedtool/dist/generaltools.js"></script>
+<script type="text/javascript" src="../../node_modules/fileupload-fed/dist/fileupload.js"></script>
+<script type="text/javascript" src="../../node_modules/datePicker/dist/datepicker.js"></script>
+<script type="text/javascript" src="../javascript/sub.js"></script>
+<script type="text/javascript">
+
+
+    $(function(){
+        $('.bksxfed-main').validate();
+        $('.bksxfed-form-cz').click(function(){
+            $.alert_fail('操作提示风险后果信息提示，操作提示风险后果信息提示');
+
+        });
+        $('.bksxfed-form-bc').click(function(){
+            $.alert_success('操作提示风险后果信息提示，操作提示风险后果信息提示');
+
+        });
+    });
+</script>
+</html>

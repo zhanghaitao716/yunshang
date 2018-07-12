@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../styles/sub.css">
+    <link rel="stylesheet" type="text/css" href="../../node_modules/fileupload-fed/dist/fileupload.css">
+</head>
+<body>
+<!-- 页面上方tab标签 -->
+<div class="bksxfed-pan bksxfed-tab">
+    <ul>
+        <li class="bksxfed-active"><a>TAB标签</a></li>
+        <li><a>TAB标签</a></li>
+    </ul>
+</div>
+<!-- 页面上方tab标签结束 -->
+<!-- 页面表单 -->
+<div class="bksxfed-main" >
+    <div class="bksxfed-title">基础信息表单01</div>
+    <!-- 基础信息表单 -->
+    <div class="bksxfed-form-pan">
+        <!-- 一行表单 -->
+        <div class="bksxfed-form-line">
+
+            <!-- 一行表单标题 -->
+            <div class="bksxfed-form-title"><span class="bksxfed-red">*</span>合同编号： </div>
+
+            <!-- 一行表单右侧 -->
+            <div class="bksxfed-form-right">
+
+                <div class="bksxfed-form-input">
+                    <input type="text" class="bksxfed-input" required minlen="5" maxlen="8" validate="full" errorContain=".nameError1">
+                </div>
+
+                <!-- 一行表单右侧错误文字 -->
+                <div class="bksxfed-warn-warp">
+                    <div class="bksxfed-warn">
+                        <div class="bksxfed-text nameError1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 一行表单结束 -->
+        <div class="bksxfed-form-line">
+
+
+            <div class="bksxfed-form-title"><span class="bksxfed-red">*</span>合同编号： </div>
+            <div class="bksxfed-form-right">
+                <div class="bksxfed-form-input">
+                    <input type="text" class="bksxfed-input" required minlen="5" maxlen="8" validate="full" errorContain=".nameError2">
+                </div>
+                <div class="bksxfed-warn-warp">
+                    <div class="bksxfed-error">
+                        <div class="bksxfed-text nameError2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bksxfed-form-line">
+            <div class="bksxfed-form-title"><span class="bksxfed-red">*</span>合同编号： </div>
+            <div class="bksxfed-form-right">
+                <div class="bksxfed-checkbox">
+                    <input type="checkbox" value="1" id="checkbox1" name="" />
+                    <label for="checkbox1"></label>
+                </div>
+                <span class="bksxfed-checkbox-text">可选项目一</span>
+                <div class="bksxfed-checkbox">
+                    <input type="checkbox" value="1" id="checkbox2" name="" />
+                    <label for="checkbox2"></label>
+                </div>
+                <span class="bksxfed-checkbox-text">可选项目二</span>
+
+            </div>
+        </div>
+
+        <div class="bksxfed-form-line">
+            <div class="bksxfed-form-title"><span class="bksxfed-red">*</span>合同编号： </div>
+            <div class="bksxfed-form-right">
+                <div class="bksxfed-radio">
+                    <input type="radio" value="1" id="radio1" name="radi" />
+                    <label for="radio1"></label>
+                </div>
+                <span class="bksxfed-radio-text">可选项目一</span>
+                <div class="bksxfed-radio">
+                    <input type="radio" value="1" id="radio2" name="radi" />
+                    <label for="radio2"></label>
+                </div>
+                <span class="bksxfed-radio-text">可选项目二</span>
+                <div class="bksxfed-radio">
+                    <input type="radio" value="1" id="radio3" name="radi" />
+                    <label for="radio3"></label>
+                </div>
+                <span class="bksxfed-radio-text">可选项目三</span>
+                <div class="bksxfed-radio">
+                    <input type="radio" value="1" id="radio4" name="radi" />
+                    <label for="radio4"></label>
+                </div>
+                <span class="bksxfed-radio-text">可选项目四</span>
+
+            </div>
+        </div>
+    </div>
+    <!-- 基础信息表单结束 -->
+    <!-- 求职意向模块 -->
+    <div class="bksxfed-title" id="qzyx">求职意向表单</div>
+    <div class="bksxfed-form-pan">
+        <div class="bksxfed-form-line">
+            <div class="bksxfed-form-title"><span class="bksxfed-red">*</span>合同编号： </div>
+            <div class="bksxfed-form-right dp_content">
+                <div class="" id="uploader" style="margin-bottom: 20px;"></div>
+            </div>
+        </div>
+    </div>
+    <!-- 求职意向模块结束 -->
+    <div class="bksxfed-title" id="jyjl">教育经历表单</div>
+    <div class="bksxfed-form-pan">
+        <div class="bksxfed-form-line">
+            <div class="bksxfed-form-title">照片：</div>
+            <div class="bksxfed-form-right">
+                <div class="bksxfed-avatar">
+                    <img src="../images/index01_photo.png">
+                    <input type="button" value="上传图片">
+                </div>
+                <div class="bksxfed-avatar-text">
+                    <p>1、请上传您的二代身份证照片的扫描件或清晰图片</p>
+                    <p>2.、照片要求格式为xxx/xxx/xxx，大小不超过xxM</p>
+                    <p>3、最适尺寸：358 * 441px</p>
+                    <p>注：我们将严格保密，请放心上传</p>
+                </div>
+            </div>
+
+        </div>
+        <a class="bksxfed-btn-primary bksxfed-form-bc bksxfed-loading" id="btn_save"><i></i>保存</a>
+        <a class="bksxfed-btn-default bksxfed-form-cz" id="btn_reset"><i></i>重置</a>
+    </div>
+    <!-- 页面导航 -->
+    <div class="bksxfed-main-map">
+        <ul>
+            <li class="bksxfed-active">
+                <a href="#jbxx">基本信息</a>
+            </li>
+            <li>
+                <a href="#qzyx">求职意向</a>
+            </li>
+            <li>
+                <a href="#jyjl">教育经历</a>
+            </li>
+            <li>
+                <a href="#gzjl">工作经历</a>
+            </li>
+            <li>
+                <a href="#xmjy">项目经验个人信息信息</a>
+            </li>
+            <li>
+                <a href="#yynl">语言能力</a>
+            </li>
+        </ul>
+    </div>
+    <!-- 页面导航结束 -->
+</div>
+<!-- 页面表单结束 -->
+
+</body>
+<script type="text/javascript" src="../../node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../../node_modules/fedtool/dist/generaltools.js"></script>
+<script type="text/javascript" src="../../node_modules/fileupload-fed/dist/fileupload.js"></script>
+<script type="text/javascript" src="../../node_modules/datePicker/dist/datepicker.js"></script>
+<script type="text/javascript" src="../javascript/sub.js"></script>
+<script type="text/javascript">
+    $('#uploader').upfile({
+        url:"/upload",
+        modeName:'testmode',
+        param:{
+            foo:"中文"
+        },
+        delparam:{
+            foo:"中文"
+        },
+        template:"../../node_modules/fileupload-fed/dist/template/default.html",
+        sizeLimit:1024*1024*100,//单位字节
+        itemLimit:5,
+        extensions:[],
+        iconUrl:'../../node_modules/fileupload-fed/dist/images/',
+        ie8floader:'http://130.10.7.127:8080/fileupload/sysfiles/'
+    });
+
+    $(function(){
+        $('.bksxfed-main').validate(function(obj){
+            alert(obj);
+        });
+        $('.bksxfed-form-cz').click(function(){
+            $.alert_fail('操作提示风险后果信息提示，操作提示风险后果信息提示');
+
+        });
+        $('.bksxfed-form-bc').click(function(){
+            $.alert_success('操作提示风险后果信息提示，操作提示风险后果信息提示');
+
+        });
+        $('.bksxfed-main-map li').click(function(){
+            $('.bksxfed-main-map li').removeClass('bksxfed-visited').removeClass('bksxfed-active');
+            $(this).addClass('bksxfed-active');
+            $(this).prevAll('li').addClass('bksxfed-visited');
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,40 @@
+.detailNav {
+	/* padding: 0 10px; */
+	background: #fff;
+	/* text-align: right; */
+	z-index: 99;
+	height: 40px;
+	width: 100%;
+	line-height: 40px;
+	margin-right: 10px;
+	font-size: 14px;
+}
+
+.navColor1 {
+	color: #9765D8;
+	font-weight: normal;
+}
+
+.navColor2 {
+	color: #85AEE4;
+	font-weight: normal;
+}
+
+.pageContent {
+	background: white;
+	padding: 0 50px 20px;
+	/*width: 96%;*/
+	margin-top: 20px;
+}
+
+.queryNav {
+	height: 48px;
+	line-height: 48px;
+	border-bottom: 1px solid black;
+	color: #4D88E7;
+}
+
+.rytzPic {
+	width: 50px;
+	height: 48px;
+}

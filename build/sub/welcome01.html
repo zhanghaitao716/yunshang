@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../styles/sub.css">
+</head>
+<body>
+    <div class="bksxfed-main-welcome-01"></div>
+</body>
+<script type="text/javascript" src="../../node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="../javascript/sub.js"></script>
+<script>
+    $(function () {
+        page();
+        function page() {
+            $.ajax({
+                url:"http://192.168.120.174:8086/yun_community/getUserList?pageCount=14&pagenum=1",
+                type:"GET",
+                success:function (data) {
+                    console.log(data);
+//                    location.href="./index.html"
+                },
+                error:function (error) {
+                    console.log(error)
+                }
+            })
+        }
+    })
+</script>
+</html>

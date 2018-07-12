@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>云上社区管理系统</title>
+    <link rel="stylesheet" type="text/css" href="styles/index.css">
+</head>
+<body class="bksxfed-min-width">
+<!-- 页面的头部-->
+<div class="bksxfed-header">
+    <div class="bksxfed-header-logo">云上社区管理系统</div>
+    <!-- 系统名称-->
+
+    <div class="bksxfed-header-right">
+        <div class="bksxfed-header-icon">
+
+            <!-- 跳转主页按钮 -->
+            <p class="bksxfed-header-icon-sy"></p>
+
+            <!-- 跳转问题页按钮 -->
+            <p class="bksxfed-header-icon-wt">
+
+            </p>
+
+            <!-- 查看未读消息按钮 -->
+            <div class="bksxfed-header-icon-wdxx">
+
+                <!-- 未读消息按钮 -->
+                <span class="bksxfed-new-num">15</span>
+
+                <!-- 未读消息面板 -->
+                <div class="bksxfed-header-new">
+                    <div class="bksxfed-arrow-up">
+                        <!--向上的三角-->
+                    </div>
+                    <ul>
+                        <li><a class="bksxfed-active" href="login01.html">消息列表消息列表消息列表消息列表消息列表消息列表消息列表消息列表消息列表</a><span>5天前</span></li>
+                        <li><a href="login01.html">消息列表消息列表消息列表消息列表消息列表消息列表消息列表消息列表消息列表</a><span>一小时前</span></li>
+                        <li><a href="login01.html">消息列表消息列表消息列表消息列表消息列表消息列表消息列表消息列表消息列表</a><span>2017-01-02</span></li>
+                    </ul>
+                    <div class="bksxfed-all-new">
+                        <a target="sub/news.html">查看所有公告</a>
+                    </div>
+                </div>
+                <!-- 未读消息面板结束 -->
+            </div>
+
+        </div>
+
+        <!-- 显示头像和名称 -->
+        <div class="bksxfed-portrait">
+            <div class="bksxfed-avater">
+                <img src="images/index01_header_avater.png">
+                <!-- 用户头像图片 -->
+
+            </div>
+            <span class="bksxfed-username">admin</span>
+            <!-- 用户名称 -->
+
+            <!-- 点击头像和名字显示的下拉框 -->
+            <div class="bksxfed-header-select" style="display: none;">
+                <div class="bksxfed-arrow-up">
+                    <!--向上的三角-->
+                </div>
+                <ul>
+                    <li><a class="bksxfed-header-xgmm bksxfed-active">修改密码</a></li>
+                    <li><a class="bksxfed-header-qhzh">切换账号</a></li>
+                    <li><a class="bksxfed-header-tcxt">退出系统</a></li>
+                </ul>
+            </div>
+            <!-- 点击头像和名字显示的下拉框结束 -->
+        </div>
+        <!-- 显示头像和名称结束 -->
+    </div>
+
+</div>
+<div class="bksxfed-menu"></div>
+<!-- 显示右侧页面 -->
+<div class="bksxfed-content">
+    <iframe width="100%" height="100%" scrolling="yes" name="iframe" src="sub/welcome01.html" frameborder="0"></iframe>
+</div>
+<!-- 显示右侧页面结束 -->
+
+</body>
+<script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="javascript/index.js"></script>
+<script type="text/javascript">
+    $(function(){
+        var menu
+        page();
+        function page() {
+
+            $.ajax({
+                url:"http://192.168.120.115:8086/yun_community/login/getTree",
+                type:"GET",
+                success:function (data) {
+                    console.log(data.returnData[0].children);
+                    menu = data.returnData[0].children;
+                    $('.bksxfed-menu').creatmenu(
+                        menu
+                    );
+                },
+                error:function (error) {
+                    console.log(error)
+                }
+            })
+        }
+        //页面头部-右上角人员列表，点击事件（修改密码）
+        $('.bksxfed-header-xgmm').click(function(){
+            alert('bksxfed-header-xgmm');
+
+        });
+
+        //页面头部-右上角人员列表，点击事件（切换账号）
+        $('.bksxfed-header-qhzh').click(function(){
+            alert('bksxfed-header-qhzh');
+        });
+
+        //页面头部-右上角人员列表，点击事件（退出登录）
+        $('.bksxfed-header-tcxt').click(function(){
+            alert('bksxfed-header-tcxt');
+
+        })
+    });
+</script>
+</html>

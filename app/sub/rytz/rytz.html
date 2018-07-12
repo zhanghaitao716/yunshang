@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../styles/commen.css"/>
+    <link rel="stylesheet" href="../../styles/rytz.css"/>
+    <link rel="stylesheet" href="../../styles/pagination.css"/>
+</head>
+<body>
+    <div class="main">
+        <div class="detailNav">
+            <span class="rytzPic fl"></span><span class="navColor1 fl">当前位置</span>&nbsp;&nbsp;>&nbsp;&nbsp;<span class="navColor2">人员台账</span>&nbsp;&nbsp;
+
+        </div>
+        <input type="text" id="pageTote" style="display: block;">
+        <input type="text" id="numTiao" style="display: block;">
+        <div class="pageContent">
+            <p class="queryNav">查询条件</p>
+            <div class="pageInpt">
+                <p class="oneInpt">
+                    <span class="words">现住地详细地址</span>
+                    <input class="xzdxxdz" type="text" />
+                </p>
+                <p class="oneInpt">
+                    <span class="words">户籍地址</span>
+                    <input class="hjdz" type="text" />
+                </p>
+                <div class="oneInpt">
+                    <div class="sonInpt">
+                        <span class="words2">姓名</span>
+                        <input class="xm" type="text" />
+                    </div>
+                    <div class="sonInpt">
+                        <span class="words2">出生日期</span>
+                        <input id="test11" type="text" />
+                    </div>
+                    <div class="sonInpt">
+                        <span class="words2">办理证卡</span>
+                        <select>
+                            <option>请选择</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="oneInpt">
+                    <div class="sonInpt">
+                        <span class="words2">身份证号码</span>
+                        <input type="text" />
+                    </div>
+                    <div class="sonInpt">
+                        <span class="words2">人员分类</span>
+                        <select>
+                            <option>请选择</option>
+                        </select>
+                    </div>
+                    <div class="sonInpt">
+                        <span class="words2">证卡类型</span>
+                        <select>
+                            <option>请选择</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="oneInpt button">
+                    <button class="chaxun fl">查询</button>
+                    <button class="chongzhi fl">重置</button>
+                </div>
+            </div>
+        </div>
+        <div class="pageContent pagePosition">
+            <p class="queryNav">查询结果</p>
+            <div style="width: 100%;height: 400px">
+                <table class="list">
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>照片</th>
+                        <th>姓名</th>
+                        <th>证件号码</th>
+                        <th>办理证卡</th>
+                        <th>居住地址</th>
+                        <th>户籍地址</th>
+                        <th>出生日期</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="pagination_14"></div>
+        </div>
+
+    </div>
+
+</body>
+<script type="text/javascript" src="../../javascript/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../../javascript/pagination.min.js"></script>
+<!--<script type="text/javascript" src="../../javascript/laydate.js"></script>-->
+    <script>
+
+        $(function () {
+            var str = '';
+            var data
+
+            function query() {
+                    laydate.render({
+                    elem: '#test11'
+                    ,format: 'yyyy年MM月dd日'
+                });
+            }
+            pageData(5,1);
+            getTote(5);
+            var totalSize = $("#pageTote").val();
+            var totalPage = $("#numTiao").val();
+            console.log("totalSize"+totalSize);
+            console.log("totalPage"+totalPage);
+            $("#pagination_14").whjPaging({
+                css: 'css-4',
+                totalSize: 14,
+                totalPage: 7,
+                pageSizeOpt: [
+                    {value: 5, text: '5条/页', selected: true}
+                ],
+                callBack: function (currPage, pageSize) {
+                    pageSize=5
+//                    console.log('currPage:' + currPage + '     pageSize:' + pageSize);
+                    pageData(pageSize,currPage);
+
+                }
+            });
+
+
+            function pageData(pageCount,pagenum) {
+                $(".list tbody").html("");
+                str = ""
+                var num
+                $.ajax({
+                    url:"http://192.168.120.174:8086/yun_community/getUserList?pageCount="+pageCount+"&pagenum="+pagenum,
+                    type:"GET",
+                    success:function (data) {
+                        data = data.returnData
+//                        tote = data.pageCount
+//                        console.log(data)
+                        for(var i=0;i<data.length;i++){
+                            num = parseInt(i)+1;
+                            str += "<tr>"+
+                                "<td>"+num+"</td>"+
+                                "<td class='people'><img src='"+data[i].syrk_zkzp+"' /></td>"+
+                                "<td>"+data[i].syrk_xm+"</td>"+
+                                "<td>"+data[i].syrk_zjhm+"</td>"+
+                                "<td>"+data[i].syrk_sfblzk+"</td>"+
+                                "<td>"+data[i].syrk_xzdxxdz+"</td>"+
+                                "<td>"+data[i].syrk_hjdz+"</td>"+
+                                "<td>"+data[i].syrk_csrq+"</td>"+
+                                "<td>chaozuo</td>"+
+                                "</tr>"
+
+                        }
+                        $(".list tbody").html(str);
+                    },
+                    error:function (error) {
+                        console.log(error)
+                    }
+                })
+            }
+//            var sss = getTote(7)
+            function getTote(pageCount) {
+                var zongyeshu
+                var zongtiaoshu
+                $.ajax({
+                    url:"http://192.168.120.174:8086/yun_community/getAllpageNum?pageCount="+pageCount,
+                    type:"GET",
+                    success:function (data) {
+                        console.log(data.returnData)
+//                         $("#pageTote").val();
+                        zongyeshu = data.returnData[1];
+                        zongtiaoshu = data.returnData[0];
+
+                        $("#pageTote").val(zongyeshu);
+                        $("#numTiao").val(zongtiaoshu);
+                    },
+                    error:function (error) {
+                        console.log(error)
+                    }
+                })
+            }
+
+        })
+    </script>
+</html>

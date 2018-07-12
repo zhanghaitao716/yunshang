@@ -1,0 +1,193 @@
+html, body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%; }
+
+.bksxfed-login-content {
+  width: 100%;
+  height: 100%;
+  min-width: 1280px;
+  background: url("../images/login01.png?__spriter") center no-repeat;
+  background-size: cover;
+  position: relative; }
+
+.bksxfed-login-main {
+  width: 360px;
+  height: 543px;
+  position: absolute;
+  right: 0;
+  bottom:0; }
+
+.bksxfed-login-main-half {
+  width: 180px;
+  height: 272px;
+  position: absolute;
+  left: 50%;
+  top: 50%; }
+
+.bksxfed-login-white {
+  width: 360px;
+  height: 490px;
+  background: #ffffff;
+  overflow: hidden; }
+
+.bksxfed-logo {
+  font-size: 14px;
+  color: #ffffff;
+  background: url("../images/login01_bottom.png?__spriter") left center no-repeat;
+  padding-left: 32px;
+  position: absolute;
+  bottom: 0;
+  left: 54px; }
+
+.bksxfed-title {
+  font-size: 30px;
+  color: #333333;
+  margin-top: 41px;
+  margin-left: 60px;
+  padding-left: 46px;
+  background: url("../images/login01_logo.png?__spriter") left center no-repeat; }
+
+.bksxfed-tab-warp {
+  width: 288px;
+  height: 66px;
+  border-bottom: 1px solid #e5e5e5;
+  margin: 0 auto;
+  position: relative; }
+.bksxfed-tab-warp .bksxfed-left {
+  left: 0; }
+.bksxfed-tab-warp .bksxfed-right {
+  right: 0; }
+
+.bksxfed-tab {
+  width: 50%;
+  line-height: 56px;
+  position: absolute;
+  bottom: -1px;
+  font-size: 16px;
+  color: #3261b8;
+  text-align: center;
+  border-bottom: 2px solid rgba(50, 97, 184, 0);
+  cursor: pointer; }
+
+.bksxfed-tab.bksxfed-active {
+  border-bottom: 2px solid #3261b8; }
+
+.bksxfed-user {
+  width: 233px;
+  height: 38px;
+  line-height: 38px;
+  border: 1px solid #e5e5e5;
+  padding-left: 53px;
+  margin: 30px 36px 0;
+  font-size: 14px;
+  color: #6f7686;
+  background: url("../images/login01_user.png?__spriter") 16px center no-repeat;
+  background-color: #fafafa;
+  outline: none; }
+
+.bksxfed-password {
+  width: 233px;
+  height: 38px;
+  line-height: 38px;
+  border: 1px solid #e5e5e5;
+  padding-left: 53px;
+  margin: 16px 36px 0;
+  font-size: 14px;
+  color: #bcc0c9;
+  background: url("../images/login01_password.png?__spriter") 16px center no-repeat;
+  background-color: #fafafa;
+  outline: none; }
+
+.bksxfed-yzm {
+  width: 288px;
+  height: 40px;
+  margin: 16px auto 0; }
+.bksxfed-yzm img {
+  width: 94px;
+  height: 40px;
+  float: right;
+  border: 1px solid #e5e5e5; }
+
+.bksxfed-yzm input {
+  padding-left: 53px;
+  width: 128px;
+  height: 38px;
+  line-height: 38px;
+  border: 1px solid #e5e5e5;
+  background: url("../images/login01_yzm.png?__spriter") 16px center no-repeat;
+  background-color: #fafafa;
+  outline: none;
+  float: left; }
+
+.bksxfed-remember {
+  height: 56px;
+  width: 288px;
+  margin: 0 auto; }
+.bksxfed-remember input {
+  margin-top: 20px; }
+.bksxfed-remember a {
+  color: #6f7686;
+  font-size: 14px;
+  display: inline-block;
+  line-height: 56px;
+  cursor: pointer; }
+.bksxfed-remember .bksxfed-forget-remember {
+  float: right;
+  line-height: 56px; }
+
+.bksxfed-login-btn {
+  width: 288px;
+  height: 40px;
+  background: #3261b8;
+  outline: none;
+  font-size: 16px;
+  color: #fefefe;
+  margin-left: 36px;
+  letter-spacing: 1em;
+  border: none;
+  cursor: pointer;
+  border-radius: 2px; }
+
+.bksxfed-login-new {
+  float: right;
+  margin-right: 36px;
+  color: #6f7686;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 23px; }
+
+.bksxfed-checkbox {
+  width: 16px;
+  display: inline-block;
+  position: relative;
+  margin-right: 1px;
+}
+.bksxfed-checkbox input[type=checkbox] {
+  visibility: hidden;
+  visibility: visible\9;
+}
+.bksxfed-checkbox label {
+  cursor: pointer;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 20px;
+  left: 0;
+  background: url("../images/index01_chechbox.png") no-repeat;
+  display: none\9;
+}
+.bksxfed-checkbox label:after {
+  opacity: 0;
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: url("../images/index01_chechbox_active.png") no-repeat;
+  top: 0;
+  left: 0;
+}
+.bksxfed-checkbox input[type=checkbox]:checked + label:after {
+  opacity: 1;
+}

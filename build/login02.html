@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页02</title>
+</head>
+<link rel="stylesheet" type="text/css" href="styles/login02.css">
+<body>
+<!-- 中间面板的一半用于定位 -->
+<div class="bksxfed-content-half">
+
+    <!-- 中间面板 -->
+    <div class="bksxfed-content">
+
+        <!-- 中间图片和登陆面板 -->
+        <div class="bksxfed-main">
+
+            <!-- 系统名称和logo -->
+            <div class="bksxfed-title">通用后台系统</div>
+
+            <!-- 登陆面板 -->
+            <div class="bksxfed-white">
+                <div class="bksxfed-white-title">用户登录</div>
+
+                <!-- 用户名 -->
+                <input class="bksxfed-user" id="lg_user">
+
+                <!-- 用户密码 -->
+                <input class="bksxfed-password" id="lg_password">
+
+                <!-- 验证码 -->
+                <div class="bksxfed-yzm">
+
+                    <!-- 验证码输入 -->
+                    <input type="text">
+
+                    <!-- 验证码图片 -->
+                    <img src="images/login01_yanzhengma.png">
+                </div>
+                <!-- 验证码结束 -->
+                <div class="bksxfed-remember">
+                    <div class="bksxfed-checkbox">
+                        <input type="checkbox" value="1" class="bksxfed-login-rem-true" id="lg_rem_true" name="" />
+                        <label for="lg_rem_true"></label>
+                    </div>
+                    <a>记住密码</a>
+
+                    <!-- 点击进入找回密码页 -->
+                    <a class="bksxfed-forget-remember">忘记密码</a>
+                </div>
+
+                <!-- 登陆按钮 -->
+                <input type="button" class="bksxfed-login-btn" id="lg_login" value="登录">
+
+                <!-- 点击跳转注册页面 -->
+                <a class="bksxfed-login-new">新用户注册</a>
+            </div>
+            <!-- 登陆面板结束 -->
+
+            <!-- 公司logo和公司名称 -->
+            <div class="bksxfed-logo">北控三兴信息技术有限公司  制作</div>
+        </div>
+        <!-- 中间图片和登陆面板结束 -->
+
+    </div>
+    <!-- 中间面板结束 -->
+</div>
+</body>
+<script type="text/javascript" src="../node_modules/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="javascript/login.js"></script>
+<script type="text/javascript">
+    $(function(){
+
+        //点击登陆按钮
+        $('#lg_login').click(function(){
+
+            //记住密码
+            rememberUser();
+
+            //页面跳转
+            window.location.href = 'index.html';
+        });
+    });
+</script>
+</html>
